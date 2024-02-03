@@ -17,6 +17,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'; 
 
+/** Store input value */
 const value = ref("");
 
 
@@ -42,7 +43,8 @@ const prop = defineProps({
         required: true
     }
 })
- 
+
+/** Set input value to prop start value */
 value.value = prop.startValue;
 
 const emit = defineEmits<{

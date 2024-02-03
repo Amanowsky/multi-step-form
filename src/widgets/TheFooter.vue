@@ -1,6 +1,6 @@
 <template>
     <footer class="w-full h-16 bg-white flex items-center p-8" :class="setClasses">
-                <LinkButton v-if="prop.backPath" :toPath="prop.backPath">
+                <LinkButton v-if="prop.backPath" :toPath="prop.backPath" :isBackBtn="true">
                     Go back
                 </LinkButton>
                 <LinkButton v-if="prop.nextPath" :toPath="prop.nextPath">
