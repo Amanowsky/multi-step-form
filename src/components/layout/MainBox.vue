@@ -1,5 +1,7 @@
 <template>
-    <div class="p-4 rounded bg-white">
+    <section>
+    <div class="px-6 py-9 mx-4 rounded-lg bg-white">
         <slot></slot>
     </div>
+</section>
 </template>
