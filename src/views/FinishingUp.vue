@@ -21,7 +21,8 @@
 
             <TheFooter 
                 :backPath="'/pick-addons'" 
-                :nextPath="'/thank-you'">
+                :nextPath="'/thank-you'"
+                :isConfirmPage="true">
             </TheFooter>
         </div>
     </MainWrapper>

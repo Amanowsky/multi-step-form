@@ -6,6 +6,8 @@ export const useMainStore = defineStore("store", () => {
  const name = ref("");
  const email = ref("");
  const phone = ref("");
+ const selectedPlan = ref("arcade");
+ const isYearly = ref(false);
 
  const getName = computed<string>(() => {
   return name.value;
@@ -15,6 +17,12 @@ export const useMainStore = defineStore("store", () => {
  })
  const getPhone = computed<string>(() => {
   return phone.value;
+ })
+ const getSelectedPlan = computed<string>(() => {
+  return selectedPlan.value;
+ })
+ const getIsYearly = computed<boolean>(() => {
+  return isYearly.value;
  })
 
  function setName(val:string):void {
@@ -26,8 +34,14 @@ export const useMainStore = defineStore("store", () => {
  function setPhone(val:string):void {
   phone.value = val;
  }
+ function setSelectedPlan(val:string):void {
+  selectedPlan.value = val;
+ }
+ function setIsYearly(val:boolean):void {
+  isYearly.value = val;
+ }
 
 
 
-  return { name ,email ,phone ,getName, getEmail, getPhone, setName, setEmail, setPhone };
+  return {getName, getEmail, getPhone, getSelectedPlan, getIsYearly, setName, setEmail, setPhone, setSelectedPlan, setIsYearly};
 });

@@ -1,10 +1,10 @@
 <template>
     <footer class="w-full h-16 bg-white flex items-center p-8" :class="setClasses">
                 <LinkButton v-if="prop.backPath" :toPath="prop.backPath" :isBackBtn="true">
-                    Go back
+                    Go Back
                 </LinkButton>
-                <LinkButton v-if="prop.nextPath" :toPath="prop.nextPath">
-                    Next step
+                <LinkButton v-if="prop.nextPath" :toPath="prop.nextPath" :isConfirmBtn="prop.isConfirmPage">
+                    {{ setNextButtonText }}
                 </LinkButton>
     </footer>
 </template>
@@ -22,6 +22,10 @@ const prop = defineProps({
     backPath: {
         type: String,
         required: false,
+    },
+    isConfirmPage: {
+        type: Boolean,
+        default: false
     }
 })
 
@@ -31,6 +35,14 @@ const prop = defineProps({
  */
 const setClasses = computed<String>(() => {
     return prop.backPath ? "justify-between" : "justify-end";
+})
+
+/**
+ * Set next button text
+ * @returns {String}
+ */
+const setNextButtonText = computed<String>(() => {
+    return prop.isConfirmPage ? "Confirm" : "Next Step"
 })
 
 </script>

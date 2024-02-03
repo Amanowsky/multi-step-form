@@ -16,6 +16,10 @@ const prop = defineProps({
     isBackBtn: {
         type: Boolean,
         default: false
+    },
+    isConfirmBtn: {
+        type: Boolean,
+        default: false
     }
 })
 
@@ -32,7 +36,9 @@ const goNext = ():void => {
  * @returns {String}
  */
 const setClasses = computed<String>(()=> {
-    return prop.isBackBtn ? "text-neutral-coolGray" : "bg-primary-marineBlue text-white"
+    return prop.isBackBtn ? "text-neutral-coolGray"
+    : prop.isConfirmBtn ? "bg-primary-purplishBlue text-white"
+    : "bg-primary-marineBlue text-white"
 }) 
 
 

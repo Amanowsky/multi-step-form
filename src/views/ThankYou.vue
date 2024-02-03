@@ -12,9 +12,7 @@
 
             </MainBox>
 
-            <TheFooter 
-                :backPath="'/finishing-up'">
-            </TheFooter>
+            
         </div>
     </MainWrapper>
 </template>
@@ -24,5 +22,5 @@ import MainBackground from '@/components/layout/MainBackground.vue';
 import MainWrapper from '@/components/layout/MainWrapper.vue';
 import MainBox from '@/components/layout/MainBox.vue';
 import StepNumber from '@/widgets/StepNumber.vue';
-import TheFooter from '@/widgets/TheFooter.vue'
+
 </script>
