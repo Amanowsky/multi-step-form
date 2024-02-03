@@ -5,7 +5,8 @@
             {{ prop.labelText }}
         </label>
         <input class="w-full h-6 p-5 border rounded-md border-neutral-lightGray"
-            :value="prop.startValue"
+            @input="emit('writeAction', value, prop.inputName)"
+            v-model="value"
             :name="inputName" 
             :placeholder="prop.placeholder" 
             :type="prop.inputType">
@@ -14,6 +15,10 @@
 
 
 <script setup lang="ts">
+import { ref } from 'vue'; 
+
+const value = ref("");
+
 
 const prop = defineProps({
     labelText: {
@@ -34,13 +39,16 @@ const prop = defineProps({
     },
     startValue: {
         type: String,
-        required: false
+        required: true
     }
 })
  
+value.value = prop.startValue;
 
-
-
+const emit = defineEmits<{
+    /** Emit event after write to input */
+    (e: 'writeAction', value: string, name: string): void
+}>()
 
 
 

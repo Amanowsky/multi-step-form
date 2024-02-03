@@ -15,20 +15,25 @@
                     </template>
                 </MainHeader>
                 <form class="flex flex-col gap-4 mt-5">
-                    <MainInput 
-
+                    <MainInput
+                        @writeAction="setInputStoreValue"
+                        :startValue="store.getName"
                         :inputName="'name'" 
                         :labelText="'Name'" 
                         :inputType="'text'"
                         :placeholder="'e.g. Stephen King'">
                     </MainInput>
                     <MainInput 
+                        @writeAction="setInputStoreValue"
+                        :startValue="store.getEmail"
                         :inputName="'email'" 
                         :labelText="'Email Address'" 
                         :inputType="'email'"
                         :placeholder="'e.g. stephenking@lorem.com'">
                     </MainInput>
                     <MainInput 
+                        @writeAction="setInputStoreValue"
+                        :startValue="store.getPhone"
                         :inputName="'phone'" 
                         :labelText="'Phone Number'" 
                         :inputType="'tel'"
@@ -54,6 +59,20 @@ import { useMainStore } from "@/stores/counter";
 
 const store = useMainStore();
 
+const setInputStoreValue = (value: string, InputName: string):void => {
+    switch(InputName){
+        case 'name':
+            store.setName(value);
+            break;
+        case 'email':
+            store.setEmail(value);
+            break;
+        case 'phone':
+            store.setPhone(value);
+            break;
+    }
+}
 
+console.log(store.getName)
 
 </script>
