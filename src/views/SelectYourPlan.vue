@@ -16,7 +16,7 @@
                         You have the option of monthly or yearly billing.
                     </template>
                 </MainHeader>
-                <div class="mt-8 flex flex-col gap-5">
+                <div class="mt-6 flex flex-col gap-5">
                     <PlanBox :icon="'arcade'" :isSelected="isSelected === 'arcade'" @isActive="setSelected('arcade')">
                         <template v-slot:planTitle>Arcade</template>
                         <template v-slot:planCost>{{ store.getIsYearly ? "$90/yr": "$9/mo" }}</template>
@@ -34,6 +34,7 @@
                         <template v-slot:planInfo v-if="store.getIsYearly">2 months free</template>
                     </PlanBox>
                 </div>
+                <PeriotSelect @isActive="setActivePeriod" :isYearly="store.getIsYearly"></PeriotSelect>
             </MainBox>
 
             <TheFooter :backPath="'/personal-info'" :nextPath="'/pick-addons'">
@@ -50,7 +51,8 @@ import StepNumber from '@/widgets/StepNumber.vue';
 import TheFooter from '@/widgets/TheFooter.vue'
 import MainHeader from '@/components/layout/MainHeader.vue';
 import PlanBox from '@/components/inputs/PlanBox.vue';
-import { computed, ref } from 'vue';
+import PeriotSelect from "@/components/inputs/PeriotSelect.vue"
+import { ref } from 'vue';
 import { useMainStore } from '@/stores/counter';
 
 /** Store for selected plan */
@@ -69,5 +71,12 @@ const setSelected = (name: string): void => {
     store.setSelectedPlan(name);
 }
 
+/**
+ * Set active subscription period
+ * @param name a name of selected subscription period
+ */
+const setActivePeriod = (name:string) => {
+    name === 'monthly' ? store.setIsYearly(false) : store.setIsYearly(true);
+}
 
 </script>

@@ -59,6 +59,12 @@ import { useMainStore } from "@/stores/counter";
 
 const store = useMainStore();
 
+
+/**
+ * Set read value to store
+ * @param value input value from component's event
+ * @param InputName name of input from the value come
+ */
 const setInputStoreValue = (value: string, InputName: string):void => {
     switch(InputName){
         case 'name':
@@ -73,6 +79,6 @@ const setInputStoreValue = (value: string, InputName: string):void => {
     }
 }
 
-console.log(store.getName)
+
 
 </script>

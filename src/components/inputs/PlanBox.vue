@@ -28,10 +28,6 @@ const prop = defineProps({
         type: String,
         required: true
     },
-    isYearly: {
-        type: Boolean,
-        default: false
-    },
 })
 
 /**
