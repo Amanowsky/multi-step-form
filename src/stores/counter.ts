@@ -8,6 +8,7 @@ export const useMainStore = defineStore("store", () => {
  const phone = ref("");
  const selectedPlan = ref("arcade");
  const isYearly = ref(false);
+ const selectedAddons = ref(Array());
 
  const getName = computed<string>(() => {
   return name.value;
@@ -23,6 +24,9 @@ export const useMainStore = defineStore("store", () => {
  })
  const getIsYearly = computed<boolean>(() => {
   return isYearly.value;
+ })
+ const getSelectedAddons = computed<Array<string>>(()=>{
+  return selectedAddons.value;
  })
 
  function setName(val:string):void {
@@ -40,8 +44,14 @@ export const useMainStore = defineStore("store", () => {
  function setIsYearly(val:boolean):void {
   isYearly.value = val;
  }
+ function addAddons(val:string):void {
+  selectedAddons.value.push(val);
+ }
+ function removeAddons(index:number):void{
+  selectedAddons.value.splice(index,1);
+ }
 
 
 
-  return {getName, getEmail, getPhone, getSelectedPlan, getIsYearly, setName, setEmail, setPhone, setSelectedPlan, setIsYearly};
+  return {getName, getEmail, getPhone, getSelectedPlan, getIsYearly, getSelectedAddons, setName, setEmail, setPhone, setSelectedPlan, setIsYearly, addAddons, removeAddons};
 });

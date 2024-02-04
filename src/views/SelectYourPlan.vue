@@ -50,8 +50,8 @@ import MainBox from '@/components/layout/MainBox.vue';
 import StepNumber from '@/widgets/StepNumber.vue';
 import TheFooter from '@/widgets/TheFooter.vue'
 import MainHeader from '@/components/layout/MainHeader.vue';
-import PlanBox from '@/components/inputs/PlanBox.vue';
-import PeriotSelect from "@/components/inputs/PeriotSelect.vue"
+import PlanBox from '@/widgets/PlanBox.vue';
+import PeriotSelect from "@/widgets/PeriotSelect.vue"
 import { ref } from 'vue';
 import { useMainStore } from '@/stores/counter';
 

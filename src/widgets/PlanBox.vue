@@ -15,9 +15,9 @@
 <script setup lang="ts">
 import {computed } from 'vue';
 import type {Component} from "vue";
-import ArcadeIcon from '../icons/ArcadeIcon.vue';
-import AdvancedIcon from '../icons/AdvancedIcon.vue';
-import ProIcon from '../icons/ProIcon.vue';
+import ArcadeIcon from '@/components/icons/ArcadeIcon.vue';
+import AdvancedIcon from '@/components/icons/AdvancedIcon.vue';
+import ProIcon from '@/components/icons/ProIcon.vue';
 
 const prop = defineProps({
     isSelected: {
