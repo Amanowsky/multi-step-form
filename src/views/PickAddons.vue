@@ -17,7 +17,7 @@
                         Add-ons help enhance your gaming experience.
                     </template>
                 </MainHeader>
-
+                <div class="flex flex-col gap-5 mt-8">
                 <SelectAddons 
                     :isSelected="store.getSelectedAddons.find(val => val === 'os') ? true : false"
                     @isActive="setActiveAddons('os')">
@@ -39,6 +39,7 @@
                     <template v-slot:addonDesc>Custom theme on your profile</template>
                     <template v-slot:addonCost>{{ store.getIsYearly ? "+$20/yr" : "+$2/mo" }}</template>
                 </SelectAddons>
+                </div>
             </MainBox>
 
             <TheFooter 
