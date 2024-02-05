@@ -16,9 +16,9 @@
                         Double-check everything looks OK before confirming.
                     </template>
                 </MainHeader>
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between bg-neutral-alabaster p-4 rounded">
                     <div class="flex flex-col items-start leading-tight">
-                        <h3>{{ showActualPlan }} ({{ showActualPeriod }})</h3>
+                        <h3 class="font-[500] text-primary-marineBlue">{{ showActualPlan }} ({{ showActualPlanPeriod }})</h3>
                         <LinkButton 
                             class="underline"
                             :toPath="'/select-your-plan'" 
@@ -26,9 +26,12 @@
                             Change
                         </LinkButton>
                     </div>
-                    <h2></h2>
+                    <h2 class="text-primary-marineBlue font-[700]">{{ showPlanPrice }}</h2>
                 </div>
-                <div></div>
+                <div class="ml-4 mr-4 flex justify-between">
+                    <h3 class="text-[0.9rem] text-neutral-coolGray">Total {{ store.getIsYearly ? "(per year)" : "(per month)" }}</h3>
+                    <h2 class="text-[1.05rem] text-primary-purplishBlue font-[700]"> {{ store.getIsYearly ? `+$${store.getAllCost}/yr` : `+$${store.getAllCost}/mo` }}</h2>
+                </div>
             </MainBox>
 
             <TheFooter :backPath="'/pick-addons'" :nextPath="'/thank-you'" :isConfirmPage="true">
@@ -47,8 +50,17 @@ import MainHeader from '@/components/layout/MainHeader.vue';
 import LinkButton from '@/components/buttons/LinkButton.vue';
 import { computed } from "vue"
 import { useMainStore } from '@/stores/mainStore';
+import { usePricesStore } from '@/stores/pricesStore';
 
 const store = useMainStore();
+const prices = usePricesStore();
+
+
+const showPlanPrice = computed<String>(() => {
+    return store.getSelectedPlan === 'arcade' ? prices.getStringPriceArcade
+            : store.getSelectedPlan === 'advanced' ? prices.getStringPriceArcade
+            : prices.getStringPricePro;
+})
 
 
 const showActualPlan = computed<String>(() => {
@@ -57,7 +69,7 @@ const showActualPlan = computed<String>(() => {
             : "Pro";
 })
 
-const showActualPeriod = computed<String>(() => {
+const showActualPlanPeriod = computed<String>(() => {
     return store.getIsYearly ? "Yearly" : "Monthly";
 })
 
