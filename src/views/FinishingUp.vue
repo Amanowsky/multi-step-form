@@ -16,19 +16,28 @@
                         Double-check everything looks OK before confirming.
                     </template>
                 </MainHeader>
-                <div class="flex items-center justify-between bg-neutral-alabaster p-4 rounded">
-                    <div class="flex flex-col items-start leading-tight">
-                        <h3 class="font-[500] text-primary-marineBlue">{{ showActualPlan }} ({{ showActualPlanPeriod }})</h3>
-                        <LinkButton 
-                            class="underline"
-                            :toPath="'/select-your-plan'" 
-                            :isBackBtn="true">
-                            Change
-                        </LinkButton>
+                <div class="flex flex-col gap-3 bg-neutral-alabaster p-4 rounded-md mt-6">
+                    <div class="flex justify-between w-full">
+                        <div class="flex flex-col items-start leading-tight">
+                            <h3 class="font-[500] text-primary-marineBlue">{{ showActualPlan }} ({{ showActualPlanPeriod }})</h3>
+                            <LinkButton 
+                                class="underline"
+                                :toPath="'/select-your-plan'" 
+                                :isBackBtn="true">
+                                Change
+                            </LinkButton>
+                        </div>
+                        <h2 class="text-primary-marineBlue font-[700]">{{ showPlanPrice }}</h2>
                     </div>
-                    <h2 class="text-primary-marineBlue font-[700]">{{ showPlanPrice }}</h2>
+                    <div class="w-full h-[1px] bg-neutral-lightGray"></div>
+                    <div v-for="el in store.getSelectedAddons" :key="el">
+                        <div class="flex justify-between">
+                            <h2 class="text-[0.9rem] text-neutral-coolGray">{{ el === 'os' ? "Online service" : el === 'ls'? "Larger Storage" : "Customizable profile" }} </h2>
+                            <h3 class="text-[0.9rem] text-primary-marineBlue">{{ el === 'os' ? prices.getStringPriceOs : el === 'ls'? prices.getStringPriceLs : prices.getStringPriceCp }}</h3>
+                        </div>
+                    </div>
                 </div>
-                <div class="ml-4 mr-4 flex justify-between">
+                <div class="ml-4 mr-4 flex justify-between mt-6">
                     <h3 class="text-[0.9rem] text-neutral-coolGray">Total {{ store.getIsYearly ? "(per year)" : "(per month)" }}</h3>
                     <h2 class="text-[1.05rem] text-primary-purplishBlue font-[700]"> {{ store.getIsYearly ? `+$${store.getAllCost}/yr` : `+$${store.getAllCost}/mo` }}</h2>
                 </div>
@@ -54,6 +63,8 @@ import { usePricesStore } from '@/stores/pricesStore';
 
 const store = useMainStore();
 const prices = usePricesStore();
+
+
 
 
 const showPlanPrice = computed<String>(() => {
