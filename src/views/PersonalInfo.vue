@@ -55,7 +55,7 @@ import StepNumber from "@/widgets/StepNumber.vue";
 import TheFooter from "@/widgets/TheFooter.vue";
 import MainHeader from "@/components/layout/MainHeader.vue";
 import MainInput from "@/components/inputs/MainInput.vue";
-import { useMainStore } from "@/stores/counter";
+import { useMainStore } from '@/stores/mainStore';
 
 const store = useMainStore();
 
@@ -82,3 +82,4 @@ const setInputStoreValue = (value: string, InputName: string):void => {
 
 
 </script>
+@/stores/mainStore

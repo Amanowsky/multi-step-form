@@ -23,21 +23,21 @@
                     @isActive="setActiveAddons('os')">
                     <template v-slot:addonTitle>Online service</template>
                     <template v-slot:addonDesc>Access to multiplayer games</template>
-                    <template v-slot:addonCost>{{ store.getIsYearly ? "+$10/yr" : "+$1/mo" }}</template>
+                    <template v-slot:addonCost>{{ setOsPrice }}</template>
                 </SelectAddons>
                 <SelectAddons 
                     :isSelected="store.getSelectedAddons.find(val => val === 'ls') ? true : false"
                     @isActive="setActiveAddons('ls')">
                     <template v-slot:addonTitle>Large storage</template>
                     <template v-slot:addonDesc>Extra 1TB of cloud save</template>
-                    <template v-slot:addonCost>{{ store.getIsYearly ? "+$20/yr" : "+$2/mo" }}</template>
+                    <template v-slot:addonCost>{{ setLsPrice }}</template>
                 </SelectAddons>
                 <SelectAddons 
                     :isSelected="store.getSelectedAddons.find(val => val === 'cp') ? true : false"
                     @isActive="setActiveAddons('cp')">
                     <template v-slot:addonTitle>Customazible profile</template>
                     <template v-slot:addonDesc>Custom theme on your profile</template>
-                    <template v-slot:addonCost>{{ store.getIsYearly ? "+$20/yr" : "+$2/mo" }}</template>
+                    <template v-slot:addonCost>{{ setCpPrice }}</template>
                 </SelectAddons>
                 </div>
             </MainBox>
@@ -58,9 +58,27 @@ import StepNumber from '@/widgets/StepNumber.vue';
 import TheFooter from '@/widgets/TheFooter.vue'
 import MainHeader from '@/components/layout/MainHeader.vue';
 import SelectAddons from '@/widgets/SelectAddons.vue';
-import { useMainStore } from '@/stores/counter';
+import { useMainStore } from '@/stores/mainStore';
+import { computed } from "vue";
 
 const store = useMainStore();
+
+
+/**
+ * Set actual price of items
+ * @returns {String}
+ */
+ const setOsPrice = computed<String>(()=>{
+    return store.getIsYearly ? `$${store.getPriceY('os')}/yr` : `$${store.getPriceM('os')}/mo`
+})
+const setLsPrice = computed<String>(()=>{
+    return store.getIsYearly ? `$${store.getPriceY('ls')}/yr` : `$${store.getPriceM('ls')}/mo`
+})
+const setCpPrice = computed<String>(()=>{
+    return store.getIsYearly ? `$${store.getPriceY('cp')}/yr` : `$${store.getPriceM('cp')}/mo`
+})
+
+
 
 /**
  * Add or remove clicked addons in store
@@ -76,4 +94,4 @@ const setActiveAddons = (name: string):void => {
 }
 
 
-</script>
+</script>@/stores/mainStore

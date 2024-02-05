@@ -1,5 +1,5 @@
 <template>
-    <button class="px-3 py-2 text-[0.90rem] rounded-md" :class="setClasses" @click="goNext()">
+    <button class="text-[0.90rem] rounded-md" :class="setClasses" @click="goNext()">
         <slot></slot>
     </button>
 </template>
@@ -37,8 +37,8 @@ const goNext = ():void => {
  */
 const setClasses = computed<String>(()=> {
     return prop.isBackBtn ? "text-neutral-coolGray"
-    : prop.isConfirmBtn ? "bg-primary-purplishBlue text-white"
-    : "bg-primary-marineBlue text-white"
+    : prop.isConfirmBtn ? "bg-primary-purplishBlue text-white px-3 py-2"
+    : "bg-primary-marineBlue text-white px-3 py-2"
 }) 
 
 
