@@ -1,10 +1,11 @@
 <template>
     <div>
-        <label class="text-primary-marineBlue text-[0.85rem]"
+        <label class="text-primary-marineBlue text-[0.85rem] xl:text-[1.2rem]"
             :for="prop.inputName">
             {{ prop.labelText }}
         </label>
-        <input class="w-full h-6 p-5 border rounded-md border-neutral-lightGray"
+        <input class="w-full h-6 p-5 border rounded-md border-neutral-lightGray xl:h-16
+         xl:rounded-xl xl:text-[1.3rem] xl:mt-2"
             @input="emit('writeAction', value, prop.inputName)"
             v-model="value"
             :name="inputName" 

@@ -4,7 +4,7 @@
         <StepNumber 
             :actualStep="1">
         </StepNumber>
-        <div class="flex flex-col h-full justify-between">
+        <div class="flex flex-col h-full justify-between xl:h-full xl:w-2/3 xl:px-16">
             <MainBox>
                 <MainHeader>
                     <template v-slot:title>
@@ -14,7 +14,7 @@
                         Please provide your name, email address, and phone number.
                     </template>
                 </MainHeader>
-                <form class="flex flex-col gap-4 mt-5">
+                <form class="flex flex-col gap-4 mt-5 xl:mt-12">
                     <MainInput
                         @writeAction="setInputStoreValue"
                         :startValue="store.getName"

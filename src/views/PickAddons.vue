@@ -6,7 +6,7 @@
             :actualStep="3">
         </StepNumber>
        
-        <div class="flex flex-col h-full w-full justify-between">
+        <div class="flex flex-col h-full justify-between xl:h-full xl:w-2/3 xl:px-16">
 
             <MainBox>
                 <MainHeader>

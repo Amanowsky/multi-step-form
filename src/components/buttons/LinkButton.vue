@@ -1,5 +1,5 @@
 <template>
-    <button class="text-[0.90rem] rounded-md" :class="setClasses" @click="goNext()">
+    <button class="text-[0.90rem] rounded-md xl:text-[1.4rem] xl:px-8 xl:py-4 xl:font-[500] xl:tracking-wide xl:rounded-xl" :class="setClasses" @click="goNext()">
         <slot></slot>
     </button>
 </template>

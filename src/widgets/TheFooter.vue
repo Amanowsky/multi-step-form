@@ -1,5 +1,5 @@
 <template>
-    <footer class="w-full h-16 bg-white flex items-center p-4" :class="setClasses">
+    <footer class="w-full h-16 bg-white flex items-center p-4 xl:py-9 xl:px-6 xl:h-auto" :class="setClasses">
                 <LinkButton v-if="prop.backPath" :toPath="prop.backPath" :isBackBtn="true">
                     Go Back
                 </LinkButton>

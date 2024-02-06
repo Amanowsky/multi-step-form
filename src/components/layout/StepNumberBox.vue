@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[30px] h-[30px] font-[500]  flex justify-center items-center rounded-full border border-white" :class="selectClass"><slot></slot></div>
+    <div class="w-[30px] h-[30px] font-[500]  flex justify-center items-center rounded-full border border-white xl:w-[45px] xl:h-[45px] xl:text-[1.25rem]" :class="selectClass"><slot></slot></div>
 </template>
 
 
