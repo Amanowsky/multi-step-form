@@ -1,18 +1,18 @@
 <template>
     <button 
-    class="w-full flex items-center justify-between gap-3 border p-4 rounded-lg" 
+    class="w-full flex items-center justify-between gap-3 border p-4 rounded-lg xl:px-8 xl:py-6" 
     :class="setClasses"
     @click="emit('isActive')">
-    <div class="flex items-center gap-3">
-        <div class="h-5 w-5 border rounded flex items-center justify-center" :class="setBgColor">
+    <div class="flex items-center gap-3 xl:gap-8">
+        <div class="h-5 w-5 border rounded flex items-center justify-center xl:w-6 xl:h-6" :class="setBgColor">
             <CheckmarkIcon v-if="prop.isSelected"></CheckmarkIcon>
         </div>
         <div class="flex flex-col">
-            <h3 class="text-start text-[0.97rem] font-[500] text-primary-marineBlue"><slot name="addonTitle"></slot></h3>
-            <h4 class="text-start text-[0.75rem] text-neutral-coolGray"><slot name="addonDesc"></slot></h4>
+            <h3 class="text-start text-[0.97rem] font-[500] text-primary-marineBlue xl:text-[1.35rem]"><slot name="addonTitle"></slot></h3>
+            <h4 class="text-start text-[0.75rem] text-neutral-coolGray xl:text-[1.1rem]"><slot name="addonDesc"></slot></h4>
         </div>
     </div>
-        <h4 class="text-[0.90rem] text-primary-purplishBlue"><slot name="addonCost"></slot></h4>
+        <h4 class="text-[0.90rem] text-primary-purplishBlue xl:text-[1.3rem]"><slot name="addonCost"></slot></h4>
     </button>
 </template>
 

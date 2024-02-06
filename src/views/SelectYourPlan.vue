@@ -16,7 +16,7 @@
                         You have the option of monthly or yearly billing.
                     </template>
                 </MainHeader>
-                <div class="mt-6 flex flex-col gap-5">
+                <div class="mt-6 flex flex-col gap-5 mb-4 xl:flex-row xl:mb-14">
                     <PlanBox :icon="'arcade'" :isSelected="store.getSelectedPlan === 'arcade'"
                         @isActive="setSelected('arcade')">
                         <template v-slot:planTitle>Arcade</template>

@@ -1,13 +1,13 @@
 <template>
     <button 
-    class="w-full flex items-center gap-5 border p-4 rounded-lg" 
+    class="w-full flex items-center gap-5 border p-4 rounded-lg xl:flex-col xl:items-start xl:gap-10 xl:p-6" 
     :class="setClasses"
     @click="emit('isActive')">
         <component :is="setIcon"></component>
         <div>
-            <h2 class="text-primary-marineBlue font-[500] text-start"><slot name="planTitle"></slot></h2>
-            <h3 class="text-neutral-coolGray text-[0.85rem] text-start"><slot name="planCost"></slot></h3>
-            <h4 class="text-[0.7rem] text-primary-marineBlue text-start"><slot name="planInfo"></slot></h4>
+            <h2 class="text-primary-marineBlue font-[500] text-start xl:text-[1.5rem]"><slot name="planTitle"></slot></h2>
+            <h3 class="text-neutral-coolGray text-[0.85rem] text-start xl:text-[1.25rem]"><slot name="planCost"></slot></h3>
+            <h4 class="text-[0.7rem] text-primary-marineBlue text-start xl:text-[1.1rem]"><slot name="planInfo"></slot></h4>
         </div>
     </button>
 </template>

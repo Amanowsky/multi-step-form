@@ -17,7 +17,7 @@
                         Add-ons help enhance your gaming experience.
                     </template>
                 </MainHeader>
-                <div class="flex flex-col gap-5 mt-8">
+                <div class="flex flex-col gap-5 mt-8 xl:mt-12">
                 <SelectAddons 
                     :isSelected="store.getSelectedAddons.find(val => val === 'os') ? true : false"
                     @isActive="setActiveAddons('os')">

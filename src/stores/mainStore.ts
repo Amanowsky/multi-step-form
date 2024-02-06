@@ -12,6 +12,8 @@ export const useMainStore = defineStore("store", () => {
  const selectedAddons = ref(Array());
  const store = usePricesStore();
 
+ selectedAddons.value.push('os')
+ selectedAddons.value.push('ls')
 
  const getName = computed<string>(() => {
   return name.value;
