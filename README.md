@@ -24,7 +24,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://multi-step-form-at.netlify.app/)
+- Live Site URL: [Netlify](https://multi-step-form-at.netlify.app/)
 
 ## My process
 
